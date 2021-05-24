@@ -1,0 +1,25 @@
+
+# Load Needed Libraries
+from random import randint
+import sys
+
+# Intro to Guessing Game
+print('Welcome to Guessing Game!')
+
+# generate number from 1 to 10
+answer = randint(int(sys.argv[1]), int(sys.argv[2]))
+
+# check that input is a number 1 to 10
+while True:
+    try:
+        guess = int(input('Please guess a number 1 to 10:  '))
+        if 0 < guess < 11:
+            if guess == answer:
+                print('Congratuations! You have guessed the correct number!')
+                break
+        else:
+            print('You have not entered a valid number. Please try again!')
+    except ValueError:
+        print('Please enter a number between 1 and 10:  ')
+        continue
+# check if number is right guess or guess again
