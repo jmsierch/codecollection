@@ -22,4 +22,3 @@ while True:
     except ValueError:
         print('Please enter a number between 1 and 10:  ')
         continue
-# check if number is right guess or guess again
