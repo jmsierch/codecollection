@@ -1,24 +1,26 @@
+# Guessing Game - Guessing a number from 1 to 10
 
-# Load Needed Libraries
-from random import randint
-import sys
+# Import needed libraries
+import random
 
-# Intro to Guessing Game
-print('Welcome to Guessing Game!')
+# Define the function
+def guess_game(guess, answer):
+    if  0 < guess < 11:
+        if guess == answer:
+            print('Congratuations! You got the right answer.')
+            return True
+    else:
+        print('Please enter a number between 1 and 10.')
+        return False
 
-# generate number from 1 to 10
-answer = randint(int(sys.argv[1]), int(sys.argv[2]))
-
-# check that input is a number 1 to 10
-while True:
-    try:
-        guess = int(input('Please guess a number 1 to 10:  '))
-        if 0 < guess < 11:
-            if guess == answer:
-                print('Congratuations! You have guessed the correct number!')
+# Run the function
+if __name__ == '__main__':
+    answer = random.randint(1, 10)
+    while True:
+        try:
+            guess = int(input('Please guess a number between 1 and 10:  '))
+            if (guess_game(guess, answer)):
                 break
-        else:
-            print('You have not entered a valid number. Please try again!')
-    except ValueError:
-        print('Please enter a number between 1 and 10:  ')
-        continue
+        except ValueError:
+            print('Please enter a number.')
+            continue
