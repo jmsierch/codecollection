@@ -1,0 +1,29 @@
+# Testing a Guessing Game Function for Errors
+
+# Import needed libraries
+import unittest
+import main
+
+
+# Set up a class to test the function
+class TestGame(unittest.TestCase):
+    def test_input(self):  # Correct number
+        result = main.guess_game(2, 2)
+        self.assertTrue(result)
+
+    def test_input_wrong_number(self):  # Wrong number
+        result = main.guess_game(0, )
+        self.assertFalse(result)
+
+    def test_input_outofbounds_number(self):  # Number out of bounds
+        result = main.guess_game(12, 2)
+        self.assertFalse(result)
+
+    def test_input_non_number(self):  # Non-number
+        result = main.guess_game('12', 2)
+        self.assertFalse(result)
+
+
+# Run the function
+if __name__ == '__main__':
+    unittest.main()
